@@ -1,0 +1,167 @@
+/**
+ * Custom Hook for Games Management
+ */
+
+import { useState, useEffect, useCallback } from 'react';
+import { getAllGames, searchGames, getGamesByPublisher, transformGamesArray } from '@/lib/api/games';
+
+export function useGames() {
+  const [games, setGames] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [lastFetch, setLastFetch] = useState(null);
+
+  const fetchGames = useCallback(async (forceRefresh = false) => {
+    // Avoid unnecessary fetches unless forced
+    if (!forceRefresh && games.length > 0 && lastFetch && Date.now() - lastFetch < 300000) {
+      return { success: true, games, count: games.length };
+    }
+
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const result = await getAllGames();
+      
+      if (result.success) {
+        const transformedGames = transformGamesArray(result.games);
+        setGames(transformedGames);
+        setLastFetch(Date.now());
+        
+        return {
+          success: true,
+          games: transformedGames,
+          count: transformedGames.length,
+        };
+      } else {
+        setError(result.error || 'Failed to load games');
+        return {
+          success: false,
+          error: result.error,
+          games: [],
+          count: 0,
+        };
+      }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to load games';
+      setError(errorMessage);
+      return {
+        success: false,
+        error: errorMessage,
+        games: [],
+        count: 0,
+      };
+    } finally {
+      setIsLoading(false);
+    }
+  }, [games.length, lastFetch]);
+
+  const searchGamesByQuery = useCallback(async (query) => {
+    if (!query || query.trim().length === 0) {
+      return { success: true, games, count: games.length };
+    }
+
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const result = await searchGames(query.trim());
+      
+      if (result.success) {
+        const transformedGames = transformGamesArray(result.games);
+        return {
+          success: true,
+          games: transformedGames,
+          count: transformedGames.length,
+        };
+      } else {
+        setError(result.error || 'Search failed');
+        return {
+          success: false,
+          error: result.error,
+          games: [],
+          count: 0,
+        };
+      }
+    } catch (err) {
+      const errorMessage = err.message || 'Search failed';
+      setError(errorMessage);
+      return {
+        success: false,
+        error: errorMessage,
+        games: [],
+        count: 0,
+      };
+    } finally {
+      setIsLoading(false);
+    }
+  }, [games]);
+
+  const getGamesByPublisherName = useCallback(async (publisher) => {
+    if (!publisher || publisher.trim().length === 0) {
+      return { success: true, games, count: games.length };
+    }
+
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const result = await getGamesByPublisher(publisher.trim());
+      
+      if (result.success) {
+        const transformedGames = transformGamesArray(result.games);
+        return {
+          success: true,
+          games: transformedGames,
+          count: transformedGames.length,
+        };
+      } else {
+        setError(result.error || 'Failed to fetch games by publisher');
+        return {
+          success: false,
+          error: result.error,
+          games: [],
+          count: 0,
+        };
+      }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to fetch games by publisher';
+      setError(errorMessage);
+      return {
+        success: false,
+        error: errorMessage,
+        games: [],
+        count: 0,
+      };
+    } finally {
+      setIsLoading(false);
+    }
+  }, [games]);
+
+  const clearError = useCallback(() => {
+    setError(null);
+  }, []);
+
+  const refreshGames = useCallback(() => {
+    return fetchGames(true);
+  }, [fetchGames]);
+
+  // Auto-fetch on mount
+  useEffect(() => {
+    fetchGames();
+  }, [fetchGames]);
+
+  return {
+    games,
+    isLoading,
+    error,
+    fetchGames,
+    searchGamesByQuery,
+    getGamesByPublisherName,
+    clearError,
+    refreshGames,
+    lastFetch,
+  };
+}
+
+export default useGames;
