@@ -313,6 +313,7 @@ function CheckoutContent() {
       };
 
       const result = await validateUser(validationData);
+      console.log(result);
 
       if (result.success && result.isValid) {
         // Successful validation
@@ -324,7 +325,7 @@ function CheckoutContent() {
         });
         setUsername(result.userInfo?.username || 'Unknown Player');
         setValidationStatus('valid');
-        setValidationMessage('User validation successful!');
+        setValidationMessage(result.message || 'User validation successful!');
       } else {
         // Failed validation
         setValidationStatus('invalid');
@@ -362,10 +363,10 @@ function CheckoutContent() {
       setValidationResult({
         status: true,
         message: 'User validated from history',
-        username: lastValidation.username || lastValidation.nickname || 'Unknown Player',
+        username: lastValidation.playerName || lastValidation.username || lastValidation.nickname || 'Unknown Player',
         server: lastValidation.server
       });
-      setUsername(lastValidation.username || lastValidation.nickname || 'Unknown Player');
+      setUsername(lastValidation.playerName || lastValidation.username || lastValidation.nickname || 'Unknown Player');
       setSelectedHistoryIndex(0);
       
       setShowHistoryPopup(false);
@@ -388,6 +389,18 @@ function CheckoutContent() {
     if (selectedValidation.server) newFields.server = selectedValidation.server;
 
     setValidationFields(newFields);
+    
+    // Set validation status to valid and populate player info
+    setValidationStatus('valid');
+    setValidationMessage('User validation successful!');
+    setValidationResult({
+      status: true,
+      message: 'User validated from history',
+      username: selectedValidation.playerName || selectedValidation.username || selectedValidation.nickname || 'Unknown Player',
+      server: selectedValidation.server
+    });
+    setUsername(selectedValidation.playerName || selectedValidation.username || selectedValidation.nickname || 'Unknown Player');
+    
     setSelectedHistoryIndex(index);
     setShowHistorySelector(false);
   };
@@ -926,19 +939,23 @@ function CheckoutContent() {
                         {orderResult.order.status}
                       </span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Character ID:</span>
-                      <span className={`text-sm font-mono font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                        {orderResult?.apiResults[0]?.data?.account_details?.["User ID"]}
-                      </span>
-                    </div>
+                    {validationFields.playerId && (
+                      <div className="flex justify-between items-center">
+                        <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Character ID:</span>
+                        <span className={`text-sm font-mono font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                          {validationFields.playerId}
+                        </span>
+                      </div>
+                    )}
 
-                    <div className="flex justify-between items-center">
-                      <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Server ID:</span>
-                      <span className={`text-sm font-mono font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                        {orderResult?.apiResults[0]?.data?.account_details?.["Server ID"]}
-                      </span>
-                    </div>
+                    {validationFields.server && (
+                      <div className="flex justify-between items-center">
+                        <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Server ID:</span>
+                        <span className={`text-sm font-mono font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                          {validationFields.server}
+                        </span>
+                      </div>
+                    )}
 
                     <div className="flex justify-between items-center">
                       <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Amount:</span>
@@ -1345,6 +1362,9 @@ function CheckoutContent() {
                 Last Validation:
               </p>
               <div className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                {validationHistory[0].playerName && (
+                  <p>Player Name: <span className="font-semibold text-blue-600 dark:text-blue-400">{validationHistory[0].playerName}</span></p>
+                )}
                 <p>Player ID: <span className="font-mono font-semibold">{validationHistory[0].playerId}</span></p>
                 {validationHistory[0].server && (
                   <p>Server: <span className="font-mono font-semibold">{validationHistory[0].server}</span></p>
@@ -1419,6 +1439,9 @@ function CheckoutContent() {
                       <p className="font-semibold mb-2">Validation #{index + 1}</p>
                       <div className={`text-sm space-y-1 ${selectedHistoryIndex === index ? 'text-blue-100' : isDark ? 'text-gray-400' : 'text-gray-600'
                         }`}>
+                        {history.playerName && (
+                          <p>Player Name: <span className={`font-semibold ${selectedHistoryIndex === index ? 'text-blue-100' : 'text-blue-600 dark:text-blue-400'}`}>{history.playerName}</span></p>
+                        )}
                         <p>Player ID: <span className="font-mono font-semibold">{history.playerId}</span></p>
                         {history.server && (
                           <p>Server: <span className="font-mono font-semibold">{history.server}</span></p>

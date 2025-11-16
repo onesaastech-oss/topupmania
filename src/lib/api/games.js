@@ -165,31 +165,32 @@ export async function validateUser(validationData) {
     // Debug: Log the API response
     console.log('Validation API Response:', data);
     
-    // Handle the new Credimi API response format
-    // Success response: {"response":true,"data":{"status":200,"nickname":"Nadeem","server":"India"}}
-    // Failed response: {"response":false,"data":{"status":429,"msg":"Too many attempts, plz wait 5 seconds"}}
+    // Handle the new API response format
+    // Success response: {"valid": true, "name": "Nadeem", "server": "", "msg": "Validation successful", "authenticated": true}
+    // Failed response: {"valid": false, "name": "", "server": "", "msg": "Player ID must contain only numbers (0-9). Special characters are not allowed.", "authenticated": true}
     
-    if (data.response === false) {
-      // Handle failed validation - show "Invalid user or server" instead of rate limit message
+    if (data.valid === false) {
+      // Handle failed validation - use the specific error message from API
       return {
         success: false,
         data: data,
         isValid: false,
-        message: "Invalid User ID or Server ID",
+        message: data.msg || "Invalid User ID or Server ID",
         userInfo: null,
+        authenticated: data.authenticated,
       };
     }
     
-    if (data.response === true && data.data?.status === 200) {
+    if (data.valid === true) {
       // Successful validation
       return {
         success: true,
         data: data,
         isValid: true,
-        message: 'User validated successfully',
+        message: data.msg || 'User validated successfully',
         userInfo: { 
-          username: data.data.nickname,
-          server: data.data.server
+          username: data.name,
+          server: data.server
         },
         authenticated: data.authenticated,
       };
@@ -200,8 +201,9 @@ export async function validateUser(validationData) {
       success: false,
       data: data,
       isValid: false,
-      message: "Invalid User ID or Server ID",
+      message: data.msg || "Invalid User ID or Server ID",
       userInfo: null,
+      authenticated: data.authenticated,
     };
     
   } catch (error) {
