@@ -91,15 +91,15 @@ export default function TermsAndConditions() {
             <section className={`mb-10 ${themeClasses.sectionBg} rounded-xl p-6 border ${themeClasses.sectionBorder} transition-colors duration-300`}>
               <h2 className={`text-xl font-bold ${themeClasses.text} mb-4 flex items-center`}>
                 <FaBolt className={`mr-3 ${themeClasses.iconColor}`} />
-                Welcome to Credimi!
+                Welcome to Topup Mania!
               </h2>
                   <div className={`space-y-3 ${themeClasses.textSecondary}`}>
                     <p>
-                      These terms and conditions outline the rules and regulations for the use of Credimi's Website, located at{' '}
-                      <a href="https://credimi.in/" className={`${themeClasses.linkColor} hover:underline font-medium`}>https://credimi.in/</a>.
+                      These terms and conditions outline the rules and regulations for the use of Topup Mania's Website, located at{' '}
+                      <a href="https://topupmania.com/" className={`${themeClasses.linkColor} hover:underline font-medium`}>https://topupmania.com/</a>.
                     </p>
                     <p className={`${themeClasses.textMuted} italic`}>
-                      By accessing this website we assume you accept these terms and conditions. Do not continue to use Credimi if you do not agree to take all of the terms and conditions stated on this page.
+                      By accessing this website we assume you accept these terms and conditions. Do not continue to use Topup Mania if you do not agree to take all of the terms and conditions stated on this page.
                     </p>
                   </div>
             </section>    
@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
                 License & Intellectual Property
               </h2>
               <p className={`mb-4 ${themeClasses.textSecondary}`}>
-                Unless otherwise stated, Credimi and/or its licensors own the intellectual property rights for all material on Credimi. All intellectual property rights are reserved. You may access this from Credimi for your own personal use subjected to restrictions set in these terms and conditions.
+                Unless otherwise stated, Topup Mania and/or its licensors own the intellectual property rights for all material on Topup Mania. All intellectual property rights are reserved. You may access this from Topup Mania for your own personal use subjected to restrictions set in these terms and conditions.
               </p>
               
               <h3 className={`text-xl font-bold ${themeClasses.text} mt-6 mb-3 flex items-center`}>
@@ -120,10 +120,10 @@ export default function TermsAndConditions() {
                 You must not:
               </h3>
               <ul className={`list-disc pl-6 space-y-2 mb-4 ${themeClasses.textSecondary}`}>
-                <li>Republish material from Credimi</li>
-                <li>Sell, rent or sub-license material from Credimi</li>
-                <li>Reproduce, duplicate or copy material from Credimi</li>
-                <li>Redistribute content from Credimi</li>
+                <li>Republish material from Topup Mania</li>
+                <li>Sell, rent or sub-license material from Topup Mania</li>
+                <li>Reproduce, duplicate or copy material from Topup Mania</li>
+                <li>Redistribute content from Topup Mania</li>
               </ul>
             </section>
 
@@ -133,10 +133,10 @@ export default function TermsAndConditions() {
                 User Comments
               </h2>
               <p className={`mb-4 ${themeClasses.textSecondary}`}>
-                Parts of this website may offer users an opportunity to post and exchange opinions and information. Credimi does not filter, edit, publish or review comments prior to their presence on the website.
+                Parts of this website may offer users an opportunity to post and exchange opinions and information. Topup Mania does not filter, edit, publish or review comments prior to their presence on the website.
               </p>
               <p className={`mb-4 ${themeClasses.textSecondary}`}>
-                Comments do not reflect the views and opinions of Credimi, its agents, and/or affiliates. Comments reflect the views and opinions of the person who posts them.
+                Comments do not reflect the views and opinions of Topup Mania, its agents, and/or affiliates. Comments reflect the views and opinions of the person who posts them.
               </p>
             </section>
 

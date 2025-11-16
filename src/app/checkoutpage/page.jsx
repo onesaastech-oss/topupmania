@@ -112,7 +112,7 @@ function CheckoutContent() {
   const gameId = searchParams.get("gameId") || "ml";
   const gameName = searchParams.get("gameName") || searchParams.get("game") || "Mobile Legends";
   const gamePublisher = searchParams.get("publisher") || "Moonton";
-  const gameImage = searchParams.get("image") || "https://api.credimi.in/static/uploads/erwnpd-908ec342-2250-432a-baa9-5d444c9475ab.webp";
+  const gameImage = searchParams.get("image") || "";
   const [ogcode, setOgcode] = useState(null);
 
 
@@ -633,7 +633,7 @@ function CheckoutContent() {
                   }`}>Follow us on</h3>
                 <div className="flex justify-between max-w-md mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10">
                   <a
-                    href="https://www.instagram.com/credimi.in"
+                    href="https://www.instagram.com/topupmania_?igsh=MTdsYzBhNGg5MnE4bQ=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg"
@@ -642,7 +642,7 @@ function CheckoutContent() {
                     <FaInstagram className="text-2xl" />
                   </a>
                   <a
-                    href="https://whatsapp.com/channel/0029VapeuCHHbFV1MPDEnR26"
+                    href="https://whatsapp.com/channel/0029VbBUuoO0QeajcurRH50F"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 flex items-center justify-center text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg"
@@ -651,7 +651,7 @@ function CheckoutContent() {
                     <FaWhatsapp className="text-2xl" />
                   </a>
                   <a
-                    href="https://t.me/credimics"
+                    href="https://t.me/Topupmaniacs"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg"
@@ -660,7 +660,7 @@ function CheckoutContent() {
                     <FaTelegram className="text-2xl" />
                   </a>
                   <a
-                    href="https://youtube.com/@credimi?si=lRsWtrN5Rw-ryM3w"
+                    href="https://youtube.com/@topupmania?si=bLXuzFfbbJcSmvnX"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white hover:opacity-90 transition-all hover:scale-105 shadow-lg"

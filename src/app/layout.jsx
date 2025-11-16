@@ -6,8 +6,8 @@ import StyledComponentsRegistry from '@/lib/registry';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Credimi',
-  description: 'Gaming Platform',
+  title: 'Topup Mania',
+  description: 'UC diamonds topup platform for mobile legends, bgmi and all',
 };
 
 export default function RootLayout({ children }) {

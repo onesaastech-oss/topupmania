@@ -142,7 +142,7 @@ export default function MaintenancePage({ message, onRetry, isLoading }) {
                         </button>
 
                         <button
-                            onClick={() => window.open('https://t.me/credimics?text=Site%20under%20maintenance', '_blank')}
+                            onClick={() => window.open('https://t.me/Topupmaniacs?text=Site%20under%20maintenance', '_blank')}
                             className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center transition-all duration-200"
                         >
                             <FaEnvelope className="mr-2" />

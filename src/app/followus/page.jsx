@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const socialLinks = [
   {
     name: "Facebook Page",
-    url: "https://facebook.com/credimi.in",
+    url: "https://www.facebook.com/topupmania.fb",
     icon: FaFacebook,
     color: "from-blue-500 to-blue-600",
     bgColor: "bg-blue-500",
@@ -16,7 +16,7 @@ const socialLinks = [
   },
   {
     name: "Instagram Page", 
-    url: "https://www.instagram.com/credimi.in",
+    url: "https://www.instagram.com/topupmania_?igsh=MTdsYzBhNGg5MnE4bQ==",
     icon: FaInstagram,
     color: "from-pink-500 via-purple-500 to-orange-500",
     bgColor: "bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500",
@@ -32,7 +32,7 @@ const socialLinks = [
   },
   {
     name: "YouTube Channel",
-    url: "https://youtube.com/@credimi?si=lRsWtrN5Rw-ryM3w",
+    url: "https://youtube.com/@topupmania?si=bLXuzFfbbJcSmvnX",
     icon: FaYoutube, 
     color: "from-red-500 to-red-600",
     bgColor: "bg-red-500",
@@ -40,7 +40,7 @@ const socialLinks = [
   },
   {
     name: "Telegram Channel",
-    url: "https://t.me/credimics",
+    url: "https://t.me/Topupmaniacs",
     icon: FaTelegram, 
     color: "from-blue-500 to-blue-600",
     bgColor: "bg-blue-500",

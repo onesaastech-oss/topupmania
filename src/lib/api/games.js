@@ -150,7 +150,7 @@ export async function validateUser(validationData) {
     // Debug: Log the validation data
     console.log('Validation data:', validationData);
     
-    // Prepare the payload for Credimi API with dynamic field names
+    // Prepare the payload for Topup Mania API with dynamic field names
     const payload = {
       game: ogcode || game,
       gameId: gameId, // Include gameId in the payload
@@ -159,7 +159,7 @@ export async function validateUser(validationData) {
     
     console.log('API Payload:', payload);
     
-    // Call Credimi API directly using httpClient
+    // Call Topup Mania API directly using httpClient
     const data = await httpClient.post('/games/validate-user', payload);
     
     // Debug: Log the API response

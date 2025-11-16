@@ -53,7 +53,7 @@ export default function SupportPage() {
   const handleSupport = () => {
     if (!isLoggedIn) {
       // If user is not logged in, open Telegram without pre-filled message
-      const telegramUrl = `https://t.me/credimics`;
+      const telegramUrl = `https://t.me/Topupmaniacs`;
       window.open(telegramUrl, '_blank');
       return;
     }
@@ -68,7 +68,7 @@ Email: ${userEmail}
 Issue: Support Request`;
 
     const encodedText = encodeURIComponent(supportText);
-    const telegramUrl = `https://t.me/credimics?text=${encodedText}`;
+    const telegramUrl = `https://t.me/Topupmaniacs?text=${encodedText}`;
     window.open(telegramUrl, '_blank');
   };
 
@@ -260,7 +260,7 @@ Issue: Support Request`;
                         }`}
                       >
                         <p>
-                          At Credimi, we take pride in offering an unparalleled level of customer support through our 24/7 Live Chat Support Service. 
+                          At Topup Mania, we take pride in offering an unparalleled level of customer support through our 24/7 Live Chat Support Service. 
                           Our dedicated team is here to help with any questions or assistance you need while using our platform.
                         </p>
                         <p className="mt-3">

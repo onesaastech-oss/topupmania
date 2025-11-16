@@ -103,11 +103,11 @@ const AddMoneyModal = () => {
   };
   
    // UPI ID for QR code (you can replace this with your actual UPI ID)
-   const upiId = 'credimi@paytm';
+   const upiId = 'topupmania@paytm';
    
    // Generate UPI payment link
    const generateUpiLink = (amount) => {
-     return `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Credimi&am=${amount}&cu=INR&tn=Add%20Money%20to%20Wallet`;
+     return `upi://pay?pa=${encodeURIComponent(upiId)}&pn=TopupMania&am=${amount}&cu=INR&tn=Add%20Money%20to%20Wallet`;
    };
    
    // This will be your actual payment URL from the API (replace when integrating with backend)

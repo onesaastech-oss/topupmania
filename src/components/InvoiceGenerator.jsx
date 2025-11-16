@@ -123,14 +123,14 @@ const InvoiceGenerator = ({ orderData, isDark, onClose }) => {
       });
       yPosition += 8;
       
-      addText('Credimi Gaming', pageWidth / 2, yPosition, { 
+      addText('Topup Mania Gaming', pageWidth / 2, yPosition, { 
         fontSize: 14, 
         fontStyle: 'bold',
         align: 'center'
       });
       yPosition += 5;
       
-      addText('Your Trusted Gaming Partner | Email: credimi01@gmail.com', pageWidth / 2, yPosition, { 
+      addText('Your Trusted Gaming Partner | Email: topupmania@gmail.com', pageWidth / 2, yPosition, { 
         fontSize: 9,
         align: 'center'
       });
@@ -305,7 +305,7 @@ const InvoiceGenerator = ({ orderData, isDark, onClose }) => {
       });
       yPosition += 5;
       
-      addText('For support, contact us at support@credimi.in', pageWidth / 2, yPosition, { 
+      addText('For support, contact us at support@topupmania.com', pageWidth / 2, yPosition, { 
         fontSize: 9,
         align: 'center'
       });

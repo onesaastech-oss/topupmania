@@ -142,10 +142,10 @@ export default function RefundPolicy() {
           <div className={`${themeClasses.sectionBg} border ${themeClasses.sectionBorder} rounded-xl p-6 mb-8 transition-colors duration-300`}>
             <h2 className={`text-2xl font-bold ${themeClasses.text} mb-3 flex items-center`}>
               <FaBolt className={`mr-3 ${themeClasses.iconColor}`} />
-              Welcome to Credimi!
+              Welcome to Topup Mania!
             </h2>
             <p className={themeClasses.textSecondary}>
-              Ensuring the privacy and security of our users is a top priority at Credimi. This Refund Policy outlines the procedures related to refunds for our services.
+              Ensuring the privacy and security of our users is a top priority at Topup Mania. This Refund Policy outlines the procedures related to refunds for our services.
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function RefundPolicy() {
                 Add Funds Refund
               </h2>
               <ul className={`list-disc pl-6 space-y-2 ${themeClasses.textSecondary}`}>
-                <li>In case the customer faces an issue where the funds are deducted from their bank account, but not added to their Credimi wallet, we assure a swift resolution in 7 working days.</li>
+                <li>In case the customer faces an issue where the funds are deducted from their bank account, but not added to their Topup Mania wallet, we assure a swift resolution in 7 working days.</li>
                 <li>The customer is required to report such incidents to our customer support within 3 days of the transaction.</li>
                 <li>Upon verification of the issue, if the funds are confirmed to be deducted and not credited to the customer's wallet, the refund will be initiated promptly.</li>
                 <li>The refund amount will be credited to the customer's bank account within 7 working days from the date of the complaint.</li>
@@ -171,7 +171,7 @@ export default function RefundPolicy() {
               <ul className={`list-disc pl-6 space-y-2 ${themeClasses.textSecondary}`}>
                 <li>If a customer encounters any problem during the recharge or bill payment process, resulting in an unsuccessful transaction, the refund process will be initiated.</li>
                 <li>Customers must notify our customer support within 7 days of the failed transaction for a refund request.</li>
-                <li>Refunds will be processed after verifying the unsuccessful transaction, and the amount will be credited to the customer's Credimi wallet.</li>
+                <li>Refunds will be processed after verifying the unsuccessful transaction, and the amount will be credited to the customer's Topup Mania wallet.</li>
               </ul>
             </section>
 
@@ -182,7 +182,7 @@ export default function RefundPolicy() {
               </h2>
               <ul className={`list-disc pl-6 space-y-2 ${themeClasses.textSecondary}`}>
                 <li>If a customer faces an issue where the flat discount is not applied correctly during a recharge, they can report the problem to our customer support.</li>
-                <li>After verification, if it is confirmed that the discount was not applied as intended, the refund for the discounted amount will be credited to the customer's Credimi wallet.</li>
+                <li>After verification, if it is confirmed that the discount was not applied as intended, the refund for the discounted amount will be credited to the customer's Topup Mania wallet.</li>
               </ul>
             </section>
 
@@ -195,11 +195,11 @@ export default function RefundPolicy() {
                 <li>Refund requests must be made within the specified time frame mentioned for each scenario.</li>
                 <li>Refunds will only be processed if the issue is reported through our official customer support channels.</li>
                 <li>Customers are required to provide accurate and necessary information for the refund verification process.</li>
-                <li>Credimi reserves the right to deny refund requests if fraudulent activities or misuse of the refund policy is suspected.</li>
-                <li>This refund policy is subject to change, and any updates will be communicated to the customers through the Credimi app or official communication channels.</li>
+                <li>Topup Mania reserves the right to deny refund requests if fraudulent activities or misuse of the refund policy is suspected.</li>
+                <li>This refund policy is subject to change, and any updates will be communicated to the customers through the Topup Mania app or official communication channels.</li>
               </ul>
               <p className={`mt-4 italic ${themeClasses.textSecondary}`}>
-                By using Credimi, customers agree to abide by this refund policy. We are committed to providing a seamless and secure experience for all our users.
+                By using Topup Mania, customers agree to abide by this refund policy. We are committed to providing a seamless and secure experience for all our users.
               </p>
             </section>
 

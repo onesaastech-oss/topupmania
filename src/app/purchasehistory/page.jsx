@@ -95,7 +95,7 @@ function PurchaseHistoryContent() {
     }
 
     const encodedText = encodeURIComponent(complaintText);
-    const telegramUrl = `https://t.me/credimics?text=${encodedText}`;
+    const telegramUrl = `https://t.me/Topupmaniacs?text=${encodedText}`;
     window.open(telegramUrl, '_blank');
   };
 
@@ -147,6 +147,8 @@ function PurchaseHistoryContent() {
 
       if (response.success) {
         const formattedOrders = response.orders.map(TransactionAPI.formatOrder);
+        console.log(formattedOrders);
+        
         setOrders(formattedOrders);
         setOrdersPagination(response.pagination);
         setOrdersCurrentPage(page);
@@ -834,6 +836,12 @@ function PurchaseHistoryContent() {
                                   }`}>Payment Method</p>
                                 <p className={`capitalize transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
                                   }`}>{order.paymentMethod}</p>
+                              </div>
+                              <div>
+                                <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'
+                                  }`}>Game Name</p>
+                                <p className={`transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'
+                                  }`}>{order.gameName}</p>
                               </div>
                               <div>
                                 <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'
