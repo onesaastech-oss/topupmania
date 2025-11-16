@@ -24,7 +24,7 @@ const socialLinks = [
   },
   {
     name: "WhatsApp Channel",
-    url: "https://whatsapp.com/channel/0029VapeuCHHbFV1MPDEnR26", 
+    url: "https://whatsapp.com/channel/0029VbBUuoO0QeajcurRH50F", 
     icon: FaWhatsapp,
     color: "from-whatsapp-500 to-whatsapp-600",
     bgColor: "bg-whatsapp",
