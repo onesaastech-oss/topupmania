@@ -6,7 +6,7 @@ import StyledComponentsRegistry from '@/lib/registry';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Credimi',
+  title: 'Topup Mania',
   description: 'Gaming Platform',
 };
 

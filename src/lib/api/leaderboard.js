@@ -10,7 +10,7 @@ import { httpClient } from './config.js';
  */
 export async function getLeaderboard() {
   try {
-    const response = await httpClient.get('/user/leaderboard');
+    const response = await httpClient.get('/user/leaderboard?eventDate=event');
     return response;
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
@@ -24,16 +24,17 @@ export async function getLeaderboard() {
  * @returns {Object} Transformed data for the leaderboard component
  */
 export function transformLeaderboardData(apiData) {
-  if (!apiData || !apiData.currentMonth) {
+  if (!apiData || !apiData.currentPeriod) {
     return {
       activeChallenge: [],
       lastReward: [],
-      walletTopAdders: []
+      walletTopAdders: [],
+      filters: null
     };
   }
 
-  // Transform current month data (Active Challenge - Purchase Leaderboard)
-  const activeChallenge = apiData.currentMonth.leaderboard.map((user, index) => ({
+  // Transform current period data (Active Challenge - Purchase Leaderboard)
+  const activeChallenge = apiData.currentPeriod.leaderboard.map((user, index) => ({
     id: user._id,
     name: user.name || 'Anonymous',
     amount: user.totalPurchaseAmount?.toLocaleString('en-IN') || '0',
@@ -43,8 +44,8 @@ export function transformLeaderboardData(apiData) {
     purchaseCount: user.purchaseCount
   }));
 
-  // Transform last month data (Last Reward) - if available
-  const lastReward = apiData.lastMonth?.leaderboard?.map((user, index) => ({
+  // Transform last period data (Last Reward) - if available
+  const lastReward = apiData.lastPeriod?.leaderboard?.map((user, index) => ({
     id: user._id,
     name: user.name || 'Anonymous',
     amount: user.totalPurchaseAmount?.toLocaleString('en-IN') || '0',
@@ -54,8 +55,8 @@ export function transformLeaderboardData(apiData) {
     purchaseCount: user.purchaseCount
   })) || [];
 
-  // Transform current month wallet top adders
-  const walletTopAdders = apiData.currentMonth.walletAdders?.map((user, index) => ({
+  // Transform current period wallet top adders
+  const walletTopAdders = apiData.currentPeriod.walletAdders?.map((user, index) => ({
     id: user._id,
     name: user.name || 'Anonymous',
     amount: user.totalWalletAdded?.toLocaleString('en-IN') || '0',
@@ -69,8 +70,9 @@ export function transformLeaderboardData(apiData) {
     activeChallenge,
     lastReward,
     walletTopAdders,
-    currentMonth: apiData.currentMonth?.month,
-    lastMonth: apiData.lastMonth?.month
+    currentPeriod: apiData.currentPeriod?.period,
+    lastPeriod: apiData.lastPeriod?.period,
+    filters: apiData.filters
   };
 }
 
@@ -89,8 +91,9 @@ export async function getFormattedLeaderboard() {
       activeChallenge: [],
       lastReward: [],
       walletTopAdders: [],
-      currentMonth: null,
-      lastMonth: null
+      currentPeriod: null,
+      lastPeriod: null,
+      filters: null
     };
   }
 }
