@@ -27,11 +27,12 @@ export function transformLeaderboardData(apiData) {
   if (!apiData || !apiData.currentMonth) {
     return {
       activeChallenge: [],
-      lastReward: []
+      lastReward: [],
+      walletTopAdders: []
     };
   }
 
-  // Transform current month data (Active Challenge)
+  // Transform current month data (Active Challenge - Purchase Leaderboard)
   const activeChallenge = apiData.currentMonth.leaderboard.map((user, index) => ({
     id: user._id,
     name: user.name || 'Anonymous',
@@ -53,9 +54,21 @@ export function transformLeaderboardData(apiData) {
     purchaseCount: user.purchaseCount
   })) || [];
 
+  // Transform current month wallet top adders
+  const walletTopAdders = apiData.currentMonth.walletAdders?.map((user, index) => ({
+    id: user._id,
+    name: user.name || 'Anonymous',
+    amount: user.totalWalletAdded?.toLocaleString('en-IN') || '0',
+    position: index + 1,
+    email: user.email,
+    avatar: user.avatar,
+    walletAddCount: user.walletAddCount
+  })) || [];
+
   return {
     activeChallenge,
     lastReward,
+    walletTopAdders,
     currentMonth: apiData.currentMonth?.month,
     lastMonth: apiData.lastMonth?.month
   };
@@ -75,6 +88,7 @@ export async function getFormattedLeaderboard() {
     return {
       activeChallenge: [],
       lastReward: [],
+      walletTopAdders: [],
       currentMonth: null,
       lastMonth: null
     };

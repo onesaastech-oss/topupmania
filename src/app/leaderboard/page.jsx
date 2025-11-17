@@ -6,7 +6,6 @@ import { FaShoppingCart, FaWallet, FaSpinner } from 'react-icons/fa';
 import Footer from "@/components/Footer";
 import LeaderboardBadge from "@/components/LeaderboardBadge";
 import { getFormattedLeaderboard } from '@/lib/api';
-import walletData from '@/data/walletData';
 
 export default function Leaderboard() {
   const [activeTab, setActiveTab] = useState('purchase'); // 'purchase' or 'wallet'
@@ -20,6 +19,7 @@ export default function Leaderboard() {
   const [leaderboardDataState, setLeaderboardDataState] = useState({
     activeChallenge: [],
     lastReward: [],
+    walletTopAdders: [],
     currentMonth: null,
     lastMonth: null
   });
@@ -125,9 +125,9 @@ export default function Leaderboard() {
       }
     } else { // wallet
       return {
-        topThree: walletData.slice(0, 3),
-        remaining: walletData.slice(3),
-        title: 'Wallet Balance',
+        topThree: leaderboardDataState.walletTopAdders.slice(0, 3),
+        remaining: leaderboardDataState.walletTopAdders.slice(3),
+        title: 'Wallet Top Adders',
         emptyMessage: 'No wallet data available'
       };
     }
@@ -382,7 +382,7 @@ export default function Leaderboard() {
                                       ? 'bg-emerald-900/80 text-emerald-300' 
                                       : 'bg-emerald-100/80 text-emerald-700'
                                   }`}>
-                                    ₹{item.amount} {activeTab === 'wallet' ? 'in wallet' : ''}
+                                    ₹{item.amount} {activeTab === 'wallet' ? 'added' : ''}
                                   </div>
                                   <div className="flex items-center justify-between w-full pr-20 sm:pr-0">
                                     <div className="flex items-center">
